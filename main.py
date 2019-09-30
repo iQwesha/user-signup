@@ -6,18 +6,20 @@ app.config['DEBUG'] = True
 
 @app.route('/')
 def index():
-    return render_template("index.html")
+    return render_template('index.html')
 
-@app.route('/welcome', methods= ["POST"])
+@app.route('/welcome', methods=['POST'])
 def validate():
-    username = request.form["username"]
-    password = request.form["password"]
-    email = request.form["email"]
-    verify = request.form["verify"]
+
+    username = request.form['username']
+    password = request.form['password']
+    email = request.form['email']
+    verify = request.form['verify']
     username_error = ""
     password_error = ""
     email_error = ""
     verify_error = ""
+
     
     if " " in username:
         username_error = "Spaces not permitted"
@@ -42,7 +44,9 @@ def validate():
                 email_error = "Must be between 3 and 20 characters"
         else:
             email_error = ""
-            
+
+
+
     if password != verify:
         verify_error = "Passwords must match"
     else:
@@ -55,5 +59,4 @@ def validate():
     else: 
         return render_template ("index.html", username_error = username_error, password_error = password_error, verify_error = verify_error, email_error = email_error, username = username, email = email, password = password)
 
-
-    app.run()      
+app.run()       
