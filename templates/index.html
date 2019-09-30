@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html>
@@ -9,12 +10,8 @@
         </style>
     </head>
     <body>
-   
-
-    {% block content %}
     <h1>Signup</h1>
-        <form action="/welcome" method="post">
-          
+        <form method="post">
             <table>
                 <tr>
                     <td><label for="username">Username</label></td>
@@ -40,12 +37,11 @@
                 <tr>
                     <td><label for="email">Email (optional)</label></td>
                     <td>
-                        <input name="email" value="">
+                        <input name="email" type="text">
                         <span class="error">{{email_error}}</span>
                     </td>
                 </tr>
             </table>
-    {% endblock %}
             <input type="submit">
         </form>
     </body>
